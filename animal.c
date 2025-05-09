@@ -96,3 +96,31 @@ void rechercher_animaux(Animal* animaux, int nb_animaux) {
     if (!trouve)
         printf("Aucun animal trouvé avec ce nom.\n");
 }
+
+#include <stdio.h>
+#include <string.h>
+#include "animal.h"
+
+int adopter_animal_par_id(Animal* animaux, int* nb_animaux, int id_a_supprimer) {
+    int trouve = 0;
+
+    for (int i = 0; i < *nb_animaux; i++) {
+        if (animaux[i].id == id_a_supprimer) {
+            trouve = 1;
+            // Décaler les animaux suivants
+            for (int j = i; j < *nb_animaux - 1; j++) {
+                animaux[j] = animaux[j + 1];
+            }
+            (*nb_animaux)--;
+            break;
+        }
+    }
+
+    if (trouve) {
+        printf("🎉 L'animal avec l'ID %d a été adopté avec succès !\n", id_a_supprimer);
+    } else {
+        printf("❌ Aucun animal trouvé avec l'ID %d.\n", id_a_supprimer);
+    }
+
+    return trouve;
+}
