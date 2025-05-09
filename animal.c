@@ -121,22 +121,33 @@ int adopter_animal_par_id(Animal* animaux, int* nb_animaux, int id_a_supprimer) 
     return trouve;
 }
 
-void calculer_croquettes(Animal* animaux, int nb_animaux) {
-    double total_croquettes = 0.0;
+void calculer_croquettes(Animal a) {
+    float croquettes;
 
-    for (int i = 0; i < nb_animaux; i++) {
-        if (strcmp(animaux[i].race, "hamster") == 0) {
-            total_croquettes += 20;  // 20g pour un hamster
-        } else if (strcmp(animaux[i].race, "autruche") == 0) {
-            total_croquettes += 2500;  // 2.5kg pour une autruche, soit 2500g
-        } else if (strcmp(animaux[i].race, "chat") == 0 || strcmp(animaux[i].race, "chien") == 0) {
-            if (animaux[i].age < 2) {
-                total_croquettes += 500;  // Moins de 2 ans : 500g pour un chat/chien
-            } else {
-                total_croquettes += 0.1 * animaux[i].age;  // Plus de 2 ans : 10% de son poids en croquettes
-            }
+    // Hamster : 20g par jour
+    if (strcmp(a.race, "hamster") == 0) {
+        croquettes = 20;  // 20g de croquettes
+    }
+    // Autruche : 2.5 kg par jour
+    else if (strcmp(a.race, "autruche") == 0) {
+        croquettes = 2500;  // 2.5kg = 2500g de croquettes
+    }
+    // Chat ou chien : dépend de l'âge
+    else if (strcmp(a.race, "chat") == 0 || strcmp(a.race, "chien") == 0) {
+        if (a.age < 2) {
+            croquettes = 500;  // Moins de 2 ans -> 500g
+        } else {
+            // 10% du poids de l'animal
+            // Supposons que l'animal ait un attribut "poids" dans la structure
+            // croquettes = 0.10 * a.poids;
+            printf("Pour un %s, calculer avec son poids est nécessaire.\n", a.race);
+            return;
         }
     }
+    else {
+        printf("Race inconnue pour le calcul des croquettes.\n");
+        return;
+    }
 
-    printf("Quantité totale de croquettes nécessaires : %.2f g\n", total_croquettes);
+    printf("Cet animal a besoin de %.2f grammes de croquettes par jour.\n", croquettes);
 }
