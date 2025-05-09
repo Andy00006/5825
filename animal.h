@@ -7,6 +7,7 @@
 #define FICHIER_DATA "animaux/data.txt"
 
 typedef struct {
+    int id;
     char nom[NOM_TAILLE];
     int age;
     char race[NOM_TAILLE];
