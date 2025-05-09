@@ -26,10 +26,8 @@ int main() {
                 scanf("%d", &reponse);
                 if (reponse == 1) {
                     calculer_croquettes(animaux[nb_animaux - 1]); // Appel à la fonction pour le dernier animal ajouté;  // Calculer les croquettes pour l'animal
-                }
-                else {
-                    printf("\2");
-                }
+                } 
+                
                 break;
             case 2:
                 afficher_animaux(animaux, nb_animaux);
@@ -41,7 +39,6 @@ int main() {
                  printf("Entrez l'ID de l'animal à adopter : ");
                     scanf("%d", &id_a_adopter);
                     adopter_animal_par_id(animaux, &nb_animaux, id_a_adopter);
-                }
                 break;
             case 5:
              enregistrer_animaux(FICHIER_DATA, animaux, nb_animaux);
@@ -50,7 +47,6 @@ int main() {
         
             default:
                 printf("Choix invalide.\n");
-        }
     } while (choix != 5);
 
     return 0;
