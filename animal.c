@@ -97,10 +97,6 @@ void rechercher_animaux(Animal* animaux, int nb_animaux) {
         printf("Aucun animal trouvé avec ce nom.\n");
 }
 
-#include <stdio.h>
-#include <string.h>
-#include "animal.h"
-
 int adopter_animal_par_id(Animal* animaux, int* nb_animaux, int id_a_supprimer) {
     int trouve = 0;
 
