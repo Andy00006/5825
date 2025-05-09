@@ -47,6 +47,7 @@ int main() {
              enregistrer_animaux(FICHIER_DATA, animaux, nb_animaux);
                 printf("Données enregistrées. Au revoir !\n");
                 break;
+        
             default:
                 printf("Choix invalide.\n");
         }
