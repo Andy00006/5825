@@ -8,6 +8,7 @@
 
 typedef struct {
     int id;
+     int poids;
     char nom[NOM_TAILLE];
     int age;
     char race[NOM_TAILLE];
