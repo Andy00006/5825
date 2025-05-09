@@ -4,7 +4,7 @@
 
 void afficher_animal(Animal a) {
     printf("Nom : %s\n", a.nom);
-    printf("Poids : %d\n, a.poids);
+    printf("Poids : %d\n", a.poids);
     printf("Âge : %d\n", a.age);
     printf("Race : %s\n", a.race);
     printf("Genre : %c\n", a.genre);
