@@ -146,10 +146,7 @@ void calculer_croquettes(Animal a) {
             printf("Pour un %s, calculer avec son poids est nécessaire.\n", a.race);
         }
     }
-    else {
-        printf("Race inconnue pour le calcul des croquettes.\n");
-        return;
-    }
+    
 
     printf("Cet animal a besoin de %.2f grammes de croquettes par jour.\n", croquettes);
 }
