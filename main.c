@@ -23,7 +23,7 @@ int main() {
                 getchar();  // Pour consommer le '\n' laissé par scanf
                 scanf("%c", &reponse);
                 if (reponse == 'O' || reponse == 'o') {
-                    (calculer_croquettes(animaux[nb_animaux - 1]); // Appel à la fonction pour le dernier animal ajouté;  // Calculer les croquettes pour l'animal
+                    calculer_croquettes(animaux[nb_animaux - 1]); // Appel à la fonction pour le dernier animal ajouté;  // Calculer les croquettes pour l'animal
                 }
                 break;
             case 2:
