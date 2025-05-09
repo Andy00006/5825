@@ -135,7 +135,7 @@ void calculer_croquettes(Animal a) {
     else if (strcmp(a.race, "autruche") == 0) {
         croquettes = 2500;  // 2.5kg = 2500g de croquettes
     }
-    // Chat ou chien : dépend de l'âge
+    // Chat ou chien : dépend de l'âge et du poids
     else if (strcmp(a.race, "chat") == 0 || strcmp(a.race, "chien") == 0) {
         if (a.age < 2) {
             croquettes = 500;  // Moins de 2 ans -> 500g
