@@ -47,7 +47,7 @@ int main() {
         
             default:
                 printf("Choix invalide.\n");
+    } 
     } while (choix != 5);
-    }
     return 0;
 }
