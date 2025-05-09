@@ -43,7 +43,7 @@ int main() {
                     adopter_animal_par_id(animaux, &nb_animaux, id_a_adopter);
                 }
                 break;
-            case 5 :
+            case 5:
              enregistrer_animaux(FICHIER_DATA, animaux, nb_animaux);
                 printf("Données enregistrées. Au revoir !\n");
                 break;
