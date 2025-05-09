@@ -22,6 +22,6 @@ void enregistrer_animaux(const char* nom_fichier, Animal* animaux, int nb_animau
 void afficher_animaux(Animal* animaux, int nb_animaux);
 void rechercher_animaux(Animal* animaux, int nb_animaux);
 int adopter_animal_par_id(Animal* animaux, int* nb_animaux, int id_a_supprimer);
-void calculer_croquettes(Animal* animaux, int nb_animaux);
+void calculer_croquettes(Animal a);
 
 #endif
