@@ -18,6 +18,13 @@ int main() {
         switch (choix) {
             case 1:
                 ajouter_animal(animaux, &nb_animaux);
+                  char reponse;
+                printf("Voulez-vous savoir combien de croquettes cet animal a besoin par jour ? (O/N) : ");
+                getchar();  // Pour consommer le '\n' laissé par scanf
+                scanf("%c", &reponse);
+                if (reponse == 'O' || reponse == 'o') {
+                    calculer_croquettes(animaux, nb_animaux);  // Calculer les croquettes pour l'animal
+                }
                 break;
             case 2:
                 afficher_animaux(animaux, nb_animaux);
