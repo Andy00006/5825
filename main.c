@@ -7,13 +7,15 @@ int main() {
 
     int choix;
     int reponse;
+     int id_a_adopter;
     do {
-        printf("\n--- Menu du refuge ---\n");
+        printf("\n=== Menu du refuge===\n");
         printf("1. Ajouter un animal\n");
-        printf("2. Afficher les animaux\n");
+        printf("2. Afficher tous les animaux\n");
         printf("3. Rechercher un animal\n");
-        printf("4. Enregistrer et quitter\n");
-        printf("Votre choix : ");
+        printf("4. Adopter un animal\n");
+        printf("5. Quitter\n");
+        printf("Choisissez une option : ");
         scanf("%d", &choix);
 
         switch (choix) {
@@ -36,7 +38,13 @@ int main() {
                 rechercher_animaux(animaux, nb_animaux);
                 break;
             case 4:
-                enregistrer_animaux(FICHIER_DATA, animaux, nb_animaux);
+                 printf("Entrez l'ID de l'animal à adopter : ");
+                    scanf("%d", &id_a_adopter);
+                    adopter_animal_par_id(animaux, &nb_animaux, id_a_adopter);
+                }
+                break;
+            case 5 :
+             enregistrer_animaux(FICHIER_DATA, animaux, nb_animaux);
                 printf("Données enregistrées. Au revoir !\n");
                 break;
             default:
