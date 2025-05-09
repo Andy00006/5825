@@ -142,7 +142,7 @@ void calculer_croquettes(Animal a) {
         } else {
             // 10% du poids de l'animal
             // Supposons que l'animal ait un attribut "poids" dans la structure
-             croquettes = 10 * a.poids;
+             croquettes = 100 * a.poids;
         }
     }
     
