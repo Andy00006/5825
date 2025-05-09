@@ -120,3 +120,23 @@ int adopter_animal_par_id(Animal* animaux, int* nb_animaux, int id_a_supprimer) 
 
     return trouve;
 }
+
+void calculer_croquettes(Animal* animaux, int nb_animaux) {
+    double total_croquettes = 0.0;
+
+    for (int i = 0; i < nb_animaux; i++) {
+        if (strcmp(animaux[i].race, "hamster") == 0) {
+            total_croquettes += 20;  // 20g pour un hamster
+        } else if (strcmp(animaux[i].race, "autruche") == 0) {
+            total_croquettes += 2500;  // 2.5kg pour une autruche, soit 2500g
+        } else if (strcmp(animaux[i].race, "chat") == 0 || strcmp(animaux[i].race, "chien") == 0) {
+            if (animaux[i].age < 2) {
+                total_croquettes += 500;  // Moins de 2 ans : 500g pour un chat/chien
+            } else {
+                total_croquettes += 0.1 * animaux[i].age;  // Plus de 2 ans : 10% de son poids en croquettes
+            }
+        }
+    }
+
+    printf("Quantité totale de croquettes nécessaires : %.2f g\n", total_croquettes);
+}
