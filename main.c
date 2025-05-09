@@ -25,6 +25,9 @@ int main() {
                 if (reponse == 'O' || reponse == 'o') {
                     calculer_croquettes(animaux[nb_animaux - 1]); // Appel à la fonction pour le dernier animal ajouté;  // Calculer les croquettes pour l'animal
                 }
+                else {
+                    printf("3");
+                }
                 break;
             case 2:
                 afficher_animaux(animaux, nb_animaux);
