@@ -142,9 +142,8 @@ void calculer_croquettes(Animal a) {
         } else {
             // 10% du poids de l'animal
             // Supposons que l'animal ait un attribut "poids" dans la structure
-            // croquettes = 0.10 * a.poids;
+             croquettes = 0.10 * a.poids;
             printf("Pour un %s, calculer avec son poids est nécessaire.\n", a.race);
-            return;
         }
     }
     else {
