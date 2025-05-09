@@ -22,7 +22,7 @@ void ajouter_animal(Animal* animaux, int* nb_animaux) {
     printf("Nom : ");
     scanf("%s", a.nom);
     printf("Poids: ");
-    scanf("%d", a.poids);
+    scanf("%d", &a.poids);
     printf("Âge : ");
     scanf("%d", &a.age);
     getchar();  // nettoie le buffer
