@@ -20,5 +20,6 @@ int charger_animaux(const char* nom_fichier, Animal* animaux, int max);
 void enregistrer_animaux(const char* nom_fichier, Animal* animaux, int nb_animaux);
 void afficher_animaux(Animal* animaux, int nb_animaux);
 void rechercher_animaux(Animal* animaux, int nb_animaux);
+int adopter_animal_par_id(Animal* animaux, int* nb_animaux, int id_a_supprimer);
 
 #endif
