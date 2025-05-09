@@ -4,6 +4,7 @@
 
 void afficher_animal(Animal a) {
     printf("Nom : %s\n", a.nom);
+    printf("Poids : %d\n, a.poids);
     printf("Âge : %d\n", a.age);
     printf("Race : %s\n", a.race);
     printf("Genre : %c\n", a.genre);
@@ -20,6 +21,8 @@ void ajouter_animal(Animal* animaux, int* nb_animaux) {
 
     printf("Nom : ");
     scanf("%s", a.nom);
+    printf("Poids: ");
+    scanf("%d", a.poids);
     printf("Âge : ");
     scanf("%d", &a.age);
     getchar();  // nettoie le buffer
