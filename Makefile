@@ -1,20 +1,17 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -g
-OBJ = main.o fonctions_avl.o fonctions_fuites.o
+CFLAGS = -Wall -Wextra -std=c11 -g
+OBJ = main.o fonctions.o
 
-all: mon_programme
+all: prog
 
-mon_programme: $(OBJ)
-	$(CC) $(CFLAGS) -o mon_programme $(OBJ)
+prog: $(OBJ)
+	$(CC) $(CFLAGS) -o prog $(OBJ)
 
-main.o: main.c en_tete.h
+main.o: main.c header.h
 	$(CC) $(CFLAGS) -c main.c
 
-fonctions_avl.o: fonctions_avl.c en_tete.h
-	$(CC) $(CFLAGS) -c fonctions_avl.c
-
-fonctions_fuites.o: fonctions_fuites.c en_tete.h
-	$(CC) $(CFLAGS) -c fonctions_fuites.c
+fonctions.o: fonctions.c header.h
+	$(CC) $(CFLAGS) -c fonctions.c
 
 clean:
-	rm -f *.o mon_programme
+	rm -f *.o prog
