@@ -5,8 +5,8 @@
 
 /* AVL simple clé -> pointeur de donnée (void*). */
 typedef struct NoeudAVL {
-    char *cle;                /* clé (identifiant) */
-    void *val;                /* pointeur vers donnée (factory_t ou node_t) */
+    char *cle;               /* clé (identifiant) */
+    void *val;               /* pointeur vers donnée (factory_t ou node_t) */
     struct NoeudAVL *gauche;
     struct NoeudAVL *droite;
     int hauteur;
