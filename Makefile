@@ -1,18 +1,19 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -O2 -g -std=c11
-SRCDIR = src
+SRCDIR = .
 OBJDIR = build/obj
 BINDIR = build
 TARGET = $(BINDIR)/eau_analyse
 
-SOURCES = $(wildcard $(SRCDIR)/*.c)
-OBJS = $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SOURCES))
+# Définition explicite des sources dans le répertoire courant
+SOURCES = avl.c data.c main.c
+OBJS = $(patsubst %.c,$(OBJDIR)/%.o,$(SOURCES))
 
 .PHONY: all clean
 
 all: $(TARGET)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
+$(OBJDIR)/%.o: %.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TARGET): $(OBJS) | $(BINDIR)
