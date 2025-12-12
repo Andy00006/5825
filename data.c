@@ -14,16 +14,16 @@ static char *xstrdup(const char *s) {
     return r;
 }
 
-/* free usine */
-static void liberer_usine(void *v) {
+/* free usine (CORRECTION: n'est plus static et nom adapté) */
+void liberer_usine_val(void *v) {
     if (!v) return;
     usine_t *u = (usine_t*)v;
     free(u->id);
     free(u);
 }
 
-/* free noeud graphe */
-static void liberer_noeud(void *v) {
+/* free noeud graphe (CORRECTION: n'est plus static et nom adapté) */
+void liberer_noeud_val(void *v) {
     if (!v) return;
     noeud_graphe_t *n = (noeud_graphe_t*)v;
     Edge *e = n->enfants;
