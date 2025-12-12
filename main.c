@@ -44,8 +44,9 @@ int main(int argc, char **argv) {
         AVL *avl_noeuds = avl_creer();
 
         if (construire_depuis_csv(csv, avl_usines, avl_noeuds) != 0) {
-            avl_liberer(avl_usines, NULL);
-            avl_liberer(avl_noeuds, NULL);
+            /* Libération avec les fonctions appropriées */
+            avl_liberer(avl_usines, liberer_usine_val); 
+            avl_liberer(avl_noeuds, liberer_noeud_val);
             return 4;
         }
 
@@ -53,9 +54,9 @@ int main(int argc, char **argv) {
             fprintf(stderr, "Erreur lors de la génération de l'histogramme.\n");
         }
 
-        /* libération simplifiée */
-        avl_liberer(avl_usines, NULL);
-        avl_liberer(avl_noeuds, NULL);
+        /* libération COMPLÈTE (CORRECTION) */
+        avl_liberer(avl_usines, liberer_usine_val);
+        avl_liberer(avl_noeuds, liberer_noeud_val);
 
         printf("Fichier vol_%s.dat créé\n", mode);
         return 0;
@@ -77,8 +78,9 @@ int main(int argc, char **argv) {
         AVL *avl_noeuds = avl_creer();
 
         if (construire_depuis_csv(csv, avl_usines, avl_noeuds) != 0) {
-            avl_liberer(avl_usines, NULL);
-            avl_liberer(avl_noeuds, NULL);
+            /* Libération avec les fonctions appropriées */
+            avl_liberer(avl_usines, liberer_usine_val);
+            avl_liberer(avl_noeuds, liberer_noeud_val);
             return 6;
         }
 
@@ -89,8 +91,9 @@ int main(int argc, char **argv) {
         else
             printf("%.6f\n", res);
 
-        avl_liberer(avl_usines, NULL);
-        avl_liberer(avl_noeuds, NULL);
+        /* libération COMPLÈTE (CORRECTION) */
+        avl_liberer(avl_usines, liberer_usine_val);
+        avl_liberer(avl_noeuds, liberer_noeud_val);
 
         return 0;
     }
@@ -103,4 +106,3 @@ int main(int argc, char **argv) {
         return 7;
     }
 }
-
