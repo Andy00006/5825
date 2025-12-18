@@ -1,29 +1,36 @@
+# Définition du compilateur
 CC = gcc
-CFLAGS = -Wall -Wextra -O2 -g -std=c11
-SRCDIR = .
-OBJDIR = build/obj
-BINDIR = build
-TARGET = $(BINDIR)/eau_analyse
 
-# Définition explicite des sources dans le répertoire courant
-SOURCES = avl.c data.c main.c
-OBJS = $(patsubst %.c,$(OBJDIR)/%.o,$(SOURCES))
+# Options de compilation :
+# -Wall -Wextra : affiche tous les avertissements pour un code propre
+# -O3 : optimisation maximale pour la vitesse de traitement
+CFLAGS = -Wall -Wextra -O3
 
-.PHONY: all clean
+# Nom de l'exécutable final
+EXEC = water_processor
 
-all: $(TARGET)
+# Liste des fichiers objets (les fichiers .c compilés en .o)
+OBJ = main.o avl.o
 
-$(OBJDIR)/%.o: %.c | $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+# Règle principale (appelée par défaut via la commande 'make')
+all: $(EXEC)
 
-$(TARGET): $(OBJS) | $(BINDIR)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+# Création de l'exécutable à partir des objets
+$(EXEC): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(EXEC)
 
-$(OBJDIR):
-	mkdir -p $(OBJDIR)
+# Compilation du fichier main.c
+main.o: main.c avl.h
+	$(CC) $(CFLAGS) -c main.c
 
-$(BINDIR):
-	mkdir -p $(BINDIR)
+# Compilation du fichier avl.c
+avl.o: avl.c avl.h
+	$(CC) $(CFLAGS) -c avl.c
 
+# Règle pour nettoyer les fichiers temporaires
 clean:
-	rm -rf $(OBJDIR) $(BINDIR) vol_*.dat vol_*.png plot_*.plt leaks_history.dat
+	rm -f *.o $(EXEC)
+
+# Règle pour tout recompiler
+rebuild: clean all
+
